@@ -1,6 +1,6 @@
 {
   "name": "catalepsy",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Catalepsy is a medium-read-only wrapper that lets you get all user (public) posts, also get a single post in raw format, markdown or html",
   "main": "src/Catalepsy.js",
   "scripts": {
@@ -14,8 +14,8 @@
     "url": "http://floresbenavides.com"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/ZeroDragon/Catalepsy"
+    "type": "git",
+    "url": "https://github.com/ZeroDragon/Catalepsy"
   },
   "license": "Apache-2.0",
   "dependencies": {
@@ -53,7 +53,9 @@
     }
   },
   "standard": {
-    "env": [ "jest" ]
+    "env": [
+      "jest"
+    ]
   },
   "runkitExampleFilename": "runkit-example.js"
 }

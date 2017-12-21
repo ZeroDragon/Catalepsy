@@ -1,5 +1,5 @@
 const Catalepsy = require('catalepsy')
-const catalepsy = new Catalepsy()
+const catalepsy = new Catalepsy({logger: console.log})
 const username = 'npmjs'
 const limit = 1
 const postsResponse = await catalepsy.getPosts({username, limit})

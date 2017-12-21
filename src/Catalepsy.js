@@ -47,7 +47,7 @@ class Trance {
     Object.keys(posts).forEach(key => {
       const post = posts[key]
       const result = this.objectFilter(
-        ['title', 'sug', 'id', 'latestPublishedAt'],
+        ['title', 'slug', 'id', 'latestPublishedAt'],
         post
       )
       result.uniqueSlug = `${result.slug}-${result.id}`
