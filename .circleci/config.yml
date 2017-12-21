@@ -28,3 +28,12 @@ jobs:
         name: Copy Coverage Reports
         command: |
           bash <(curl -s https://codecov.io/bash)
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
