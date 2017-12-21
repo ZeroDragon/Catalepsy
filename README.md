@@ -58,6 +58,10 @@ const getPost = async (username, slug) => {
 }
 ```
 
+## Develop
+
+Must follow standard.js rules and keep test coverage over 90% to be able to commit
+
 ## Testing
 
 Just run `yarn test` coverage should be 100%
