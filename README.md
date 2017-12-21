@@ -7,7 +7,9 @@ Catalepsy is a medium-read-only wrapper that lets you get all user (public) post
 
 ## Install
 
-`yarn install catalepsy` or `npm install -S catalepsy`
+`yarn add catalepsy`  
+or  
+`npm install -S catalepsy`  
 
 ## Usage
 
