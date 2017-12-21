@@ -26,8 +26,7 @@ jobs:
     steps:
       - run:
           name: Copy Coverage Reports
-          command: |
-            bash <(curl -s https://codecov.io/bash)
+          command: curl -s https://codecov.io/bash | bash -
 
 
 workflows:
