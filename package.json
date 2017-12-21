@@ -1,11 +1,12 @@
 {
   "name": "catalepsy",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Catalepsy is a medium-read-only wrapper that lets you get all user (public) posts, also get a single post in raw format, markdown or html",
   "main": "src/Catalepsy.js",
   "scripts": {
     "precommit": "lint-staged",
-    "test": "jest"
+    "test": "npx jest --runInBand --forceExit",
+    "test-precommit": "npx jest --runInBand --forceExit --testPathIgnorePatterns=/__mocks__/"
   },
   "author": {
     "name": "Carlos Flores",
@@ -31,7 +32,7 @@
   "lint-staged": {
     "src/**/*.{js,json}": [
       "standard --fix",
-      "jest",
+      "test-precommit",
       "git add"
     ]
   },
@@ -53,5 +54,6 @@
   },
   "standard": {
     "env": [ "jest" ]
-  }
+  },
+  "runkitExampleFilename": "runkit-example.js"
 }
