@@ -24,8 +24,7 @@ jobs:
   test:
     <<: *defaults
     steps:
-      - post:
-        - bash <(curl -s https://codecov.io/bash)
+      - run: bash <(curl -s https://codecov.io/bash)
 
 
 workflows:
