@@ -47,9 +47,10 @@ class Trance {
     Object.keys(posts).forEach(key => {
       const post = posts[key]
       const result = this.objectFilter(
-        ['title', 'uniqueSlug', 'latestPublishedAt'],
+        ['title', 'sug', 'id', 'latestPublishedAt'],
         post
       )
+      result.uniqueSlug = `${result.slug}-${result.id}`
       result.subtitle = post.content.subtitle
       result.previewImage = `${this.cdn}${post.virtuals.previewImage.imageId}`
       resultPosts.push(result)

@@ -85,7 +85,7 @@ const mockallPosts = {
       Post: {
         xyz321: {
           title: 'Title Text',
-          uniqueSlug: 'title-text-xyz321',
+          slug: 'title-text',
           latestPublishedAt: 1513819841000,
           content: {
             subtitle: 'This is is a subtitle'
@@ -98,7 +98,7 @@ const mockallPosts = {
         },
         xyz789: {
           title: 'Title Text2',
-          uniqueSlug: 'title-text-xyz789',
+          slug: 'title-text',
           latestPublishedAt: 1513819842000,
           content: {
             subtitle: 'This is is a subtitle2'
