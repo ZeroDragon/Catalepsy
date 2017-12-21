@@ -13,23 +13,16 @@ jobs:
       - restore_cache:
           keys:
             - npm-deps-{{ checksum "yarn.lock" }}
+      - run: yarn add codecov
       - run: yarn install
       - save_cache:
           key: npm-deps-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
-  test:
-    <<: *defaults
-    steps:
-      - run: yarn add codecov
       - run: yarn test && npx codecov
-
 
 workflows:
   version: 2
-  build_and_test:
+  build_test_codecov:
     jobs:
       - build
-      - test:
-          requires:
-            - build
