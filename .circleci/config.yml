@@ -24,7 +24,10 @@ jobs:
   test:
     <<: *defaults
     steps:
-      - run: bash <(curl -s https://codecov.io/bash)
+      - run:
+          name: Copy Coverage Reports
+          command: |
+            bash <(curl -s https://codecov.io/bash)
 
 
 workflows:
