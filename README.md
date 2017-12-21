@@ -1,6 +1,8 @@
 CATALEPSY
 =======
 
+CircleCI Status: [![CircleCI](https://circleci.com/gh/ZeroDragon/Catalepsy/tree/master.svg?style=svg)](https://circleci.com/gh/ZeroDragon/Catalepsy/tree/master)
+
 Catalepsy is a medium-read-only wrapper that lets you get all user (public) posts, also get a single post in raw format, markdown or html
 
 ## Install
