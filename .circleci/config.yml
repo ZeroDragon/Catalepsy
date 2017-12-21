@@ -4,6 +4,8 @@ defaults: &defaults
   working_directory: ~/app
   docker:
     - image: node:8.9.2-alpine
+  environment:
+    YARN_CACHE_FOLDER: "/home/circleci/.yarn-cache"
 
 jobs:
   build:
@@ -12,21 +14,23 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+            - npm-deps-{{ checksum "yarn.lock" }}
       - run: yarn install
       - save_cache:
+          key: npm-deps-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      # run tests!
-      - run: yarn test
+      - persist_to_workspace:
+          root: /home/circleci/
+          paths:
+            - app
   test:
     <<: *defaults
     steps:
-      - run:
-          name: Copy Coverage Reports
-          command: curl -s https://codecov.io/bash | bash -
+      - attach_workspace:
+          at: /home/circleci/
+      - run: yarn add codecov
+      - run: yarn test && npx codecov
 
 
 workflows:
