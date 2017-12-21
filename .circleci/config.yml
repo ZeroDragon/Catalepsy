@@ -23,8 +23,9 @@ jobs:
       - run: yarn test
   test:
     <<: *defaults
-    post:
-      - bash <(curl -s https://codecov.io/bash)
+    steps:
+      - post:
+        - bash <(curl -s https://codecov.io/bash)
 
 
 workflows:
