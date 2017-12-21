@@ -12,6 +12,10 @@
     "email": "npm@zerothedragon.com",
     "url": "http://floresbenavides.com"
   },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ZeroDragon/Catalepsy"
+  },
   "license": "Apache-2.0",
   "dependencies": {
     "marked": "^0.3.7",
