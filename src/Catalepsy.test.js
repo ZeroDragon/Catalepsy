@@ -1,4 +1,4 @@
-const Trance = require('./trance')
+const Catalepsy = require('./Catalepsy')
 const mockCB = require('request')
 const marked = require('marked')
 const {mockHTML, mockPost, mockallPosts, mockResultRaw} = require('./__mocks__/requestData')
@@ -8,9 +8,9 @@ describe('Validate errors', () => {
   it('should get default values', async () => {
     const username = 'test'
     const logger = jest.fn()
-    const trance = new Trance()
+    const catalepsy = new Catalepsy()
     mockCB.mockImplementationOnce((params, cb) => cb(new Error('da Err'), '', ''))
-    const {status, data} = await trance.getPosts({username})
+    const {status, data} = await catalepsy.getPosts({username})
     expect(mockCB).toHaveBeenCalledWith(
       {'method': 'GET', 'qs': {'format': 'json', 'limit': 10}, 'uri': 'https://medium.com/@test/latest'},
       expect.any(Function)
@@ -22,9 +22,9 @@ describe('Validate errors', () => {
   it('should catch request error', async () => {
     const username = 'test'
     const logger = jest.fn()
-    const trance = new Trance({logger})
+    const catalepsy = new Catalepsy({logger})
     mockCB.mockImplementationOnce((params, cb) => cb(new Error('da Err'), '', ''))
-    const {status, data} = await trance.getPost({username})
+    const {status, data} = await catalepsy.getPost({username})
     expect(mockCB).toHaveBeenCalledWith(
       {'method': 'GET', 'qs': {'format': 'json', 'limit': 1}, 'uri': 'https://medium.com/@test/undefined'},
       expect.any(Function)
@@ -38,16 +38,16 @@ describe('Validate errors', () => {
   })
 })
 
-describe('Trance all user public posts', () => {
+describe('Catalepsy all user public posts', () => {
   afterEach(() => {
     jest.clearAllMocks()
   })
   it('should fetch from medium only once', async () => {
     const username = 'test'
     const logger = jest.fn()
-    const trance = new Trance({logger})
+    const catalepsy = new Catalepsy({logger})
     mockCB.mockImplementationOnce((params, cb) => cb(null, '', `])}while(1);</x>${JSON.stringify(mockallPosts)}`))
-    const {status, data} = await trance.getPosts({username, limit: 10})
+    const {status, data} = await catalepsy.getPosts({username, limit: 10})
     expect(mockCB).toHaveBeenCalledWith(
       {'method': 'GET', 'qs': {'format': 'json', 'limit': 10}, 'uri': 'https://medium.com/@test/latest'},
       expect.any(Function)
@@ -62,17 +62,17 @@ describe('Trance all user public posts', () => {
       user: expect.any(Object)
     })
 
-    const {status: status2, data: data2} = await trance.getPosts({username, limit: 10})
+    const {status: status2, data: data2} = await catalepsy.getPosts({username, limit: 10})
     expect(logger).toHaveBeenCalledTimes(1)
     expect(status).toEqual(status2)
     expect(data).toEqual(data2)
   })
 })
-describe('Trance one public post', () => {
+describe('Catalepsy one public post', () => {
   const username = 'test'
   const slug = 'title-text-xyz321'
   const logger = jest.fn()
-  const trance = new Trance({
+  const catalepsy = new Catalepsy({
     siteUrl: 'http://test.com/',
     cdn: 'https://amazontest.com/',
     cacheInMinutes: 1,
@@ -81,7 +81,7 @@ describe('Trance one public post', () => {
 
   it('should fetch one post in RAW format', async () => {
     mockCB.mockImplementationOnce((params, cb) => cb(null, '', `])}while(1);</x>${JSON.stringify(mockPost)}`))
-    const { data } = await trance.getPost({username, slug, format: 'raw'})
+    const { data } = await catalepsy.getPost({username, slug, format: 'raw'})
     expect(mockCB).toHaveBeenCalledWith(
       {'method': 'GET', 'qs': {'format': 'json', 'limit': 1}, 'uri': 'http://test.com/@test/title-text-xyz321'},
       expect.any(Function)
@@ -94,14 +94,14 @@ describe('Trance one public post', () => {
   })
   it('should fetch one post in MARKDOWN format', async () => {
     mockCB.mockImplementationOnce((params, cb) => cb(null, '', `])}while(1);</x>${JSON.stringify(mockPost)}`))
-    const { data: data2 } = await trance.getPost({username, slug, format: 'markdown'})
+    const { data: data2 } = await catalepsy.getPost({username, slug, format: 'markdown'})
     expect(mockCB).toHaveBeenCalledTimes(1)
     expect(logger).toHaveBeenCalledTimes(1)
     expect(marked(data2)).toEqual(mockHTML)
   })
   it('should fetch one post in HTML format', async () => {
     mockCB.mockImplementationOnce((params, cb) => cb(null, '', `])}while(1);</x>${JSON.stringify(mockPost)}`))
-    const { data: data3 } = await trance.getPost({username, slug})
+    const { data: data3 } = await catalepsy.getPost({username, slug})
     expect(mockCB).toHaveBeenCalledTimes(1)
     expect(logger).toHaveBeenCalledTimes(1)
     expect(data3).toEqual(mockHTML)

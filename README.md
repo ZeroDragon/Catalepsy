@@ -1,17 +1,17 @@
-TRANCE
+CATALEPSY
 =======
 
-Trance is a medium-read-only wrapper that lets you get all user (public) posts, also get a single post in raw format, markdown or html
+Catalepsy is a medium-read-only wrapper that lets you get all user (public) posts, also get a single post in raw format, markdown or html
 
 ## Install
 
-`yarn install trance` or `npm install -S trance`
+`yarn install catalepsy` or `npm install -S catalepsy`
 
 ## Usage
 
 ```javascript
-const Trance = require('trance')
-const trance = new Trance({
+const Catalepsy = require('catalepsy')
+const catalepsy = new Catalepsy({
   siteUrl: 'http://test.com/', // defaults to https://medium.com/
   cdn: 'https://amazontest.com/', // defaults to https://cdn-images-1.medium.com/max/1600/
   cacheInMinutes: 5, // defaults to 1
@@ -41,19 +41,19 @@ You can set one of three possible format options:.
 
 ```javascript
 const getAllUserPosts = async (username,limit) => {
-  const {status, data} = await trance.getPosts({username, limit})
+  const {status, data} = await catalepsy.getPosts({username, limit})
   // status is an HTTP Status code (200 or 500)
   // data is a JSON file with `posts` and `user`
 }
 
 const getPost = async (username, slug) => {
-  const {data: html} = await trance.getPost({username, slug})
+  const {data: html} = await catalepsy.getPost({username, slug})
   // HTML with the post
 
-  const {data: raw} = await trance.getPost({username, slug, 'raw'})
+  const {data: raw} = await catalepsy.getPost({username, slug, 'raw'})
   // raw is the JSON from medium
 
-  const {data: markdown} = await trance.getPost({username, slug, 'markdown'})
+  const {data: markdown} = await catalepsy.getPost({username, slug, 'markdown'})
   // markdown is the post in markdown format
 }
 ```

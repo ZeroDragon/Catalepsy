@@ -1,8 +1,8 @@
 {
-  "name": "trance",
-  "version": "1.0.0",
-  "description": "Trance is a medium-read-only wrapper that lets you get all user (public) posts, also get a single post in raw format, markdown or html",
-  "main": "medium.js",
+  "name": "catalepsy",
+  "version": "1.0.1",
+  "description": "Catalepsy is a medium-read-only wrapper that lets you get all user (public) posts, also get a single post in raw format, markdown or html",
+  "main": "src/Catalepsy.js",
   "scripts": {
     "precommit": "lint-staged",
     "test": "jest"
