@@ -1,11 +1,13 @@
 version: 2
+
+defaults: &defaults
+  working_directory: ~/app
+  docker:
+    - image: node:8.9.2-alpine
+
 jobs:
   build:
-    docker:
-      - image: node:8.9.2-alpine
-
-    working_directory: ~/repo
-
+    <<: *defaults
     steps:
       - checkout
       - restore_cache:
@@ -20,6 +22,7 @@ jobs:
       # run tests!
       - run: yarn test
   test:
+    <<: *defaults
     steps:
       - run:
         name: Copy Coverage Reports
