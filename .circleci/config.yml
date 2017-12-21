@@ -3,7 +3,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/app
   docker:
-    - image: node:8.9.2-alpine
+    - image: node:8.9.2
 
 jobs:
   build:
