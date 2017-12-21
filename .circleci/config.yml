@@ -21,5 +21,7 @@ jobs:
       - run: yarn test
   test:
     steps:
-      post:
-        - bash <(curl -s https://codecov.io/bash)
+      - run:
+        name: Copy Coverage Reports
+        command: |
+          bash <(curl -s https://codecov.io/bash)
