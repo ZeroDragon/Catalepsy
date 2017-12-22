@@ -1,7 +1,7 @@
 CATALEPSY
 =======
 
-[![CircleCI](https://circleci.com/gh/ZeroDragon/Catalepsy/tree/master.svg?style=svg)](https://circleci.com/gh/ZeroDragon/Catalepsy/tree/master) [![codecov](https://codecov.io/gh/ZeroDragon/catalepsy/branch/master/graph/badge.svg)](https://codecov.io/gh/ZeroDragon/catalepsy)  
+![CircleCI](https://img.shields.io/circleci/project/github/ZeroDragon/Catalepsy/master.svg "CircleCI") ![CodeCov](https://img.shields.io/codecov/c/github/ZeroDragon/Catalepsy.svg "CodeCov") ![version](https://img.shields.io/npm/v/catalepsy.svg "version") ![license](https://img.shields.io/npm/l/catalepsy.svg "license") ![last commit](https://img.shields.io/github/last-commit/ZeroDragon/Catalepsy.svg "last commit") ![love](https://img.shields.io/badge/Love%20%E2%9D%A4-Lots%20of%20it-ff69b4.svg "love") ![downloads](https://img.shields.io/npm/dt/catalepsy.svg "downloads")  
 
 Catalepsy is a medium-read-only wrapper that lets you get all user (public) posts, also get a single post in raw format, markdown or html
 
