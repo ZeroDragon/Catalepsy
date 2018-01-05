@@ -5,6 +5,9 @@ CATALEPSY
 
 Catalepsy is a medium-read-only wrapper that lets you get all user (public) posts, also get a single post in raw format, markdown or html
 
+## Try it online
+just head to [Runkit](https://npm.runkit.com/catalepsy) and click `run`
+
 ## Install
 
 `yarn add catalepsy`  
