@@ -1,6 +1,6 @@
 {
   "name": "catalepsy",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Catalepsy is a medium-read-only wrapper that lets you get all user (public) posts, also get a single post in raw format, markdown or html",
   "main": "src/Catalepsy.js",
   "scripts": {
