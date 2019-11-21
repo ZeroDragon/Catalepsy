@@ -12,7 +12,7 @@ class Trance {
   }
   fn (resource, username, limit, slug) {
     const uri = encodeURI((resource === 'posts')
-      ? `${this.siteUrl}@${username}/latest`
+      ? `${this.siteUrl}@${username}`
       : `${this.siteUrl}@${username}/${slug}`)
     this.logger(`hitting ${uri} with`, {limit})
     return new Promise(resolve => {

@@ -5,8 +5,8 @@
   "main": "src/Catalepsy.js",
   "scripts": {
     "precommit": "lint-staged",
-    "test": "npx jest --runInBand --forceExit",
-    "test-precommit": "npx jest --runInBand --forceExit --testPathIgnorePatterns=/__mocks__/"
+    "test": "npx jest --runInBand --forceExit --detectOpenHandles",
+    "test-precommit": "npx jest --runInBand --forceExit --detectOpenHandles"
   },
   "author": {
     "name": "Carlos Flores",

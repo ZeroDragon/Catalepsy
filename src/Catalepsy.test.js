@@ -12,7 +12,7 @@ describe('Validate errors', () => {
     mockCB.mockImplementationOnce((params, cb) => cb(new Error('da Err'), '', ''))
     const {status, data} = await catalepsy.getPosts({username})
     expect(mockCB).toHaveBeenCalledWith(
-      {'method': 'GET', 'qs': {'format': 'json', 'limit': 10}, 'uri': 'https://medium.com/@test/latest'},
+      {'method': 'GET', 'qs': {'format': 'json', 'limit': 10}, 'uri': 'https://medium.com/@test'},
       expect.any(Function)
     )
     expect(logger).not.toHaveBeenCalled()
@@ -49,11 +49,11 @@ describe('Catalepsy all user public posts', () => {
     mockCB.mockImplementationOnce((params, cb) => cb(null, '', `])}while(1);</x>${JSON.stringify(mockallPosts)}`))
     const {status, data} = await catalepsy.getPosts({username, limit: 10})
     expect(mockCB).toHaveBeenCalledWith(
-      {'method': 'GET', 'qs': {'format': 'json', 'limit': 10}, 'uri': 'https://medium.com/@test/latest'},
+      {'method': 'GET', 'qs': {'format': 'json', 'limit': 10}, 'uri': 'https://medium.com/@test'},
       expect.any(Function)
     )
     expect(logger).toHaveBeenCalledWith(
-      'hitting https://medium.com/@test/latest with',
+      'hitting https://medium.com/@test with',
       {'limit': 10}
     )
     expect(status).toBe(200)
