@@ -19,7 +19,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "memoizee": "^0.4.11",
     "request": "^2.83.0"
   },
